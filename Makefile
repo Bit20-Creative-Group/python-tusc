@@ -17,7 +17,7 @@ clean-pyc:
 
 .PHONY: lint
 lint:
-	flake8 bitshares*
+	flake8 tusc*
 
 .PHONY: test
 test:
