@@ -4,14 +4,14 @@ import yaml
 
 from pprint import pprint
 
-from bitshares import BitShares, storage
-from bitshares.instance import set_shared_blockchain_instance
-from bitshares.blockchainobject import BlockchainObject, ObjectCache
-from bitshares.asset import Asset
-from bitshares.account import Account
-from bitshares.proposal import Proposals, Proposal
+from tusc import TUSC, storage
+from tusc.instance import set_shared_blockchain_instance
+from tusc.blockchainobject import BlockchainObject, ObjectCache
+from tusc.asset import Asset
+from tusc.account import Account
+from tusc.proposal import Proposals, Proposal
 
-from bitsharesbase.operationids import operations
+from tuscbase.operationids import operations
 
 # default wifs key for testing
 wifs = [
@@ -20,9 +20,9 @@ wifs = [
 ]
 wif = wifs[0]
 
-# bitshares instance
-bitshares = BitShares(
-    "wss://eu.nodes.bitshares.ws", keys=wifs, nobroadcast=True, num_retries=1
+# tusc instance
+bitshares = TUSC(
+    "wss://eu.nodes.tusc.ws", keys=wifs, nobroadcast=True, num_retries=1
 )
 config = bitshares.config
 

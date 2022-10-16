@@ -3,7 +3,7 @@ import asyncio
 import pytest
 import logging
 
-from bitshares.aio.block import Block
+from tusc.aio.block import Block
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

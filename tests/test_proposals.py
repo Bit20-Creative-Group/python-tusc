@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
 from pprint import pprint
-from bitshares import BitShares
-from bitsharesbase.operationids import getOperationNameForId
-from bitshares.instance import set_shared_bitshares_instance
+from tusc import TUSC
+from tuscbase.operationids import getOperationNameForId
+from tusc.instance import set_shared_bitshares_instance
 from .fixtures import fixture_data, bitshares
 
 
@@ -12,7 +12,7 @@ class Testcases(unittest.TestCase):
         fixture_data()
 
     def test_finalizeOps_proposal(self):
-        # proposal = bitshares.new_proposal(bitshares.tx())
+        # proposal = tusc.new_proposal(tusc.tx())
         proposal = bitshares.proposal()
         bitshares.transfer("init1", 1, "BTS", append_to=proposal)
         tx = bitshares.tx().json()  # default tx buffer
@@ -27,7 +27,7 @@ class Testcases(unittest.TestCase):
 
     def test_finalizeOps_proposal2(self):
         proposal = bitshares.new_proposal()
-        # proposal = bitshares.proposal()
+        # proposal = tusc.proposal()
         bitshares.transfer("init1", 1, "BTS", append_to=proposal)
         tx = bitshares.tx().json()  # default tx buffer
         ops = tx["operations"]
@@ -71,8 +71,8 @@ class Testcases(unittest.TestCase):
 
     """
     def test_finalizeOps_changeproposer_legacy(self):
-        bitshares.proposer = "init5"
-        tx = bitshares.transfer("init1", 1, "BTS")
+        tusc.proposer = "init5"
+        tx = tusc.transfer("init1", 1, "BTS")
         ops = tx["operations"]
         self.assertEqual(len(ops), 1)
         self.assertEqual(

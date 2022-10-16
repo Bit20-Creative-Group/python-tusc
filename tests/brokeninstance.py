@@ -13,7 +13,7 @@ class BitsharesIsolator(object):
     @classmethod
     def enable(self):
         if not self.enabled:
-            from bitshares.instance import set_shared_bitshares_instance
+            from tusc.instance import set_shared_bitshares_instance
 
             broken = BrokenBitsharesInstance()
             set_shared_bitshares_instance(broken)

@@ -4,13 +4,13 @@ import pytest
 import random
 import string
 
-from bitshares.aio import BitShares
-from bitshares.aio.instance import set_shared_bitshares_instance, SharedInstance
-from bitshares.aio.genesisbalance import GenesisBalance
-from bitshares.aio.asset import Asset
-from bitshares.aio.account import Account
-from bitshares.aio.price import Price
-from bitshares.exceptions import (
+from tusc.aio import TUSC
+from tusc.aio.instance import set_shared_bitshares_instance, SharedInstance
+from tusc.aio.genesisbalance import GenesisBalance
+from tusc.aio.asset import Asset
+from tusc.aio.account import Account
+from tusc.aio.price import Price
+from tusc.exceptions import (
     AssetDoesNotExistsException,
     AccountDoesNotExistsException,
 )
@@ -26,7 +26,7 @@ def event_loop():
 @pytest.fixture(scope="session")
 async def bitshares_instance(bitshares_testnet, private_keys, event_loop):
     """Initialize BitShares instance connected to a local testnet."""
-    bitshares = BitShares(
+    bitshares = TUSC(
         node="ws://127.0.0.1:{}".format(bitshares_testnet.service_port),
         keys=private_keys,
         num_retries=-1,

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitsharesbase import operations
+from tuscbase import operations
 from .fixtures import fixture_data, bitshares
 
 

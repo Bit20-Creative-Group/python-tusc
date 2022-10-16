@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 import time
 import unittest
-from bitshares import BitShares, exceptions
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.blockchainobject import ObjectCache
+from tusc import TUSC, exceptions
+from tusc.instance import set_shared_bitshares_instance
+from tusc.blockchainobject import ObjectCache
 
 
 class Testcases(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.bts = BitShares(
+        self.bts = TUSC(
             nobroadcast=True,
         )
         set_shared_bitshares_instance(self.bts)

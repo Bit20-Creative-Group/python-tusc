@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from bitshares.utils import assets_from_string
+from tusc.utils import assets_from_string
 
 
 def test_assets_from_string():

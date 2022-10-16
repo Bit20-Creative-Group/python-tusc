@@ -3,7 +3,7 @@ import asyncio
 import pytest
 import logging
 
-from bitshares.aio.asset import Asset
+from tusc.aio.asset import Asset
 
 logger = logging.getLogger("websockets")
 logger.setLevel(logging.DEBUG)

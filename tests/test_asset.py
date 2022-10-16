@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares import BitShares
-from bitshares.asset import Asset
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.exceptions import AssetDoesNotExistsException
+from tusc import TUSC
+from tusc.asset import Asset
+from tusc.instance import set_shared_bitshares_instance
+from tusc.exceptions import AssetDoesNotExistsException
 from .fixtures import fixture_data
 
 

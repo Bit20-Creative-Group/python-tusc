@@ -20,7 +20,7 @@ async def test_parse_error(bitshares, default_account):
 
 @pytest.mark.asyncio
 async def test_assert_error(bitshares, default_account, assets):
-    from bitshares.aio.market import Market
+    from tusc.aio.market import Market
 
     m = await Market("TEST/GOLD")
     with pytest.raises(RPCError, match="insufficient balance"):

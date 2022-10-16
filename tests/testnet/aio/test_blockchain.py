@@ -3,7 +3,7 @@ import asyncio
 import pytest
 import logging
 
-from bitshares.aio.blockchain import Blockchain
+from tusc.aio.blockchain import Blockchain
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

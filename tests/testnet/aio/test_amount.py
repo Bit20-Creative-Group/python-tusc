@@ -2,7 +2,7 @@
 import pytest
 import logging
 
-from bitshares.aio.amount import Amount
+from tusc.aio.amount import Amount
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

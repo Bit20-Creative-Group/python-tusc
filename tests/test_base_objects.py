@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares import BitShares, exceptions
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.account import Account
-from bitshares.committee import Committee
+from tusc import TUSC, exceptions
+from tusc.instance import set_shared_bitshares_instance
+from tusc.account import Account
+from tusc.committee import Committee
 from .fixtures import fixture_data
 
 

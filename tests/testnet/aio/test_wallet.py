@@ -2,8 +2,8 @@
 import pytest
 import logging
 
-from bitshares.aio.asset import Asset
-from bitshares.aio.account import Account
+from tusc.aio.asset import Asset
+from tusc.aio.account import Account
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

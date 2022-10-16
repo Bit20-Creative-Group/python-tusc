@@ -2,13 +2,13 @@
 import unittest
 import mock
 from pprint import pprint
-from bitshares import BitShares
-from bitshares.account import Account
-from bitshares.amount import Amount
-from bitshares.asset import Asset
-from bitshares.price import Order
-from bitshares.instance import set_shared_bitshares_instance
-from bitsharesbase.operationids import getOperationNameForId
+from tusc import TUSC
+from tusc.account import Account
+from tusc.amount import Amount
+from tusc.asset import Asset
+from tusc.price import Order
+from tusc.instance import set_shared_bitshares_instance
+from tuscbase.operationids import getOperationNameForId
 from .fixtures import fixture_data, bitshares
 
 
@@ -68,7 +68,7 @@ class Testcases(unittest.TestCase):
         self.assertIsInstance(account.callpositions, dict)
 
     def test_whitelist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from tuscbase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.whitelist("committee-account")
@@ -80,7 +80,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_blacklist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from tuscbase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.blacklist("committee-account")
@@ -92,7 +92,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_unlist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from tuscbase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.nolist("committee-account")
@@ -104,7 +104,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_accountupdate(self):
-        from bitshares.account import AccountUpdate
+        from tusc.account import AccountUpdate
 
         t = {
             "id": "2.6.29",

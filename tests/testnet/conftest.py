@@ -6,15 +6,15 @@ import pytest
 import socket
 import random
 
-from bitshares import BitShares
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.genesisbalance import GenesisBalance
-from bitshares.asset import Asset
+from tusc import TUSC
+from tusc.instance import set_shared_bitshares_instance
+from tusc.genesisbalance import GenesisBalance
+from tusc.asset import Asset
 
-from bitsharesbase.chains import known_chains
+from tuscbase.chains import known_chains
 
 # Note: chain_id is generated from genesis.json, every time it's changes you need to get
-# new chain_id from `bitshares.rpc.get_chain_properties()`
+# new chain_id from `tusc.rpc.get_chain_properties()`
 known_chains["TEST"][
     "chain_id"
 ] = "569cba9a00ee6e807a62389ea67de7c6954835390be62371709ec804c6bfe1f2"
@@ -63,24 +63,24 @@ def docker_manager():
 @pytest.fixture(scope="session")
 def bitshares_testnet(session_id, unused_port, docker_manager):
     """
-    Run bitshares-core inside local docker container.
+    Run tusc-core inside local docker container.
 
-    Manual run example: $ docker run --name bitshares -p
-    0.0.0.0:8091:8091 -v `pwd`/cfg:/etc/bitshares/ bitshares/bitshares-
+    Manual run example: $ docker run --name tusc -p
+    0.0.0.0:8091:8091 -v `pwd`/cfg:/etc/tusc/ tusc/tusc-
     core:testnet
     """
     port = unused_port()
     container = docker_manager.containers.run(
-        image="bitshares/bitshares-core:testnet",
-        name="bitshares-testnet-{}".format(session_id),
+        image="tusc/tusc-core:testnet",
+        name="tusc-testnet-{}".format(session_id),
         ports={"8091": port},
         volumes={
             "{}/tests/testnet/node_config".format(os.path.abspath(".")): {
-                "bind": "/etc/bitshares/",
+                "bind": "/etc/tusc/",
                 "mode": "ro",
             },
             "{}/tests/testnet/node_config/logging.ini".format(os.path.abspath(".")): {
-                "bind": "/var/lib/bitshares/logging.ini",
+                "bind": "/var/lib/tusc/logging.ini",
                 "mode": "ro",
             },
         },
@@ -94,7 +94,7 @@ def bitshares_testnet(session_id, unused_port, docker_manager):
 @pytest.fixture(scope="session")
 def bitshares_instance(bitshares_testnet, private_keys):
     """Initialize BitShares instance connected to a local testnet."""
-    bitshares = BitShares(
+    bitshares = TUSC(
         node="ws://127.0.0.1:{}".format(bitshares_testnet.service_port),
         keys=private_keys,
         num_retries=-1,

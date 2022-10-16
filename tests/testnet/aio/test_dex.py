@@ -3,8 +3,8 @@ import asyncio
 import pytest
 import logging
 
-from bitshares.aio.dex import Dex
-from bitshares.aio.amount import Amount
+from tusc.aio.dex import Dex
+from tusc.aio.amount import Amount
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

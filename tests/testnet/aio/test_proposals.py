@@ -3,7 +3,7 @@ import asyncio
 import pytest
 import logging
 
-from bitsharesbase.operationids import getOperationNameForId
+from tuscbase.operationids import getOperationNameForId
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

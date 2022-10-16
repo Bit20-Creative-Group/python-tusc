@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares.blockchainobject import Object
+from tusc.blockchainobject import Object
 from .fixtures import fixture_data, bitshares
 
 

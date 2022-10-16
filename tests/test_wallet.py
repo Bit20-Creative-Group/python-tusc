@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares import storage
-from bitshares.wallet import Wallet
-from bitshares.exceptions import KeyNotFound
-from bitsharesbase.account import PrivateKey
+from tusc import storage
+from tusc.wallet import Wallet
+from tusc.exceptions import KeyNotFound
+from tuscbase.account import PrivateKey
 from .fixtures import fixture_data
 
 

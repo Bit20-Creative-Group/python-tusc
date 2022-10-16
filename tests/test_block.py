@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import unittest
 from pprint import pprint
-from bitshares import BitShares
-from bitshares.block import Block, BlockHeader
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.utils import parse_time
+from tusc import TUSC
+from tusc.block import Block, BlockHeader
+from tusc.instance import set_shared_bitshares_instance
+from tusc.utils import parse_time
 from .fixtures import fixture_data
 
 

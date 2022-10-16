@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 import mock
-from bitshares.message import Message
+from tusc.message import Message
 from .fixtures import fixture_data, bitshares
 
 

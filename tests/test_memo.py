@@ -3,8 +3,8 @@ import unittest
 import os
 from pprint import pprint
 from itertools import cycle
-from bitsharesbase.account import BrainKey, Address, PublicKey, PrivateKey
-from bitsharesbase.memo import get_shared_secret, _pad, _unpad, encode_memo, decode_memo
+from tuscbase.account import BrainKey, Address, PublicKey, PrivateKey
+from tuscbase.memo import get_shared_secret, _pad, _unpad, encode_memo, decode_memo
 
 test_cases = [
     {

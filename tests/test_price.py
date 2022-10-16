@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from bitshares import BitShares
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.amount import Amount
-from bitshares.price import Price
-from bitshares.asset import Asset
+from tusc import TUSC
+from tusc.instance import set_shared_bitshares_instance
+from tusc.amount import Amount
+from tusc.price import Price
+from tusc.asset import Asset
 import unittest
 from .fixtures import bitshares
 

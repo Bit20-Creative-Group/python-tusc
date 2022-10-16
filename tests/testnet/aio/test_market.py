@@ -3,11 +3,11 @@ import pytest
 import logging
 import asyncio
 
-from bitshares.aio.asset import Asset
-from bitshares.aio.amount import Amount
-from bitshares.aio.account import Account
-from bitshares.aio.price import Price, Order
-from bitshares.aio.market import Market
+from tusc.aio.asset import Asset
+from tusc.aio.amount import Amount
+from tusc.aio.account import Account
+from tusc.aio.price import Price, Order
+from tusc.aio.market import Market
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)

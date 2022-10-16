@@ -4,14 +4,14 @@ import pytest
 import logging
 
 from datetime import datetime
-from bitshares.aio.asset import Asset
-from bitshares.aio.amount import Amount
-from bitshares.aio.account import Account
-from bitshares.aio.price import Price
-from bitshares.aio.proposal import Proposals
-from bitshares.aio.worker import Workers
-from bitshares.aio.dex import Dex
-from bitshares.aio.market import Market
+from tusc.aio.asset import Asset
+from tusc.aio.amount import Amount
+from tusc.aio.account import Account
+from tusc.aio.price import Price
+from tusc.aio.proposal import Proposals
+from tusc.aio.worker import Workers
+from tusc.aio.dex import Dex
+from tusc.aio.market import Market
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)
@@ -90,7 +90,7 @@ async def test_allow_disallow(bitshares, default_account):
 
 @pytest.mark.asyncio
 async def test_update_memo_key(bitshares, ltm_account, default_account):
-    from bitsharesbase.account import PasswordKey
+    from tuscbase.account import PasswordKey
 
     account = ltm_account
     password = "test2"
@@ -342,9 +342,9 @@ async def test_subscribe_to_market(bitshares, assets, default_account):
 
 @pytest.mark.asyncio
 async def test_double_connect(bitshares_testnet):
-    from bitshares.aio import BitShares
+    from tusc.aio import TUSC
 
-    bitshares = BitShares(
+    bitshares = TUSC(
         node="ws://127.0.0.1:{}".format(bitshares_testnet.service_port), num_retries=-1
     )
     await bitshares.connect()

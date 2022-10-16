@@ -3,7 +3,7 @@ import asyncio
 import pytest
 import logging
 
-from bitshares.aio.message import Message
+from tusc.aio.message import Message
 
 log = logging.getLogger("grapheneapi")
 log.setLevel(logging.DEBUG)
