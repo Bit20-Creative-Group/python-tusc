@@ -18,7 +18,7 @@ log = logging.getLogger(__name__)
 # logging.basicConfig(level=logging.DEBUG)
 
 
-class BitSharesWebsocket(Events):
+class TUSCWebsocket(Events):
     """
     Create a websocket connection and request push notifications.
 
@@ -39,11 +39,11 @@ class BitSharesWebsocket(Events):
     * ``on_market``
 
     which will be called accordingly with the notification
-    message received from the BitShares node:
+    message received from the TUSC node:
 
     .. code-block:: python
 
-        ws = BitSharesWebsocket(
+        ws = TUSCWebsocket(
             "wss://node.testnet.tusc.eu",
             objects=["2.0.x", "2.1.x", "1.3.x"]
         )

@@ -14,7 +14,7 @@ class Dex(BlockchainInstance):
     """
     This class simplifies interactions with the decentralized exchange.
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
 
     .. note:: The methods of this class only deal with a single asset (at
               most). If you are looking to deal with orders for trading,
@@ -72,7 +72,7 @@ class Dex(BlockchainInstance):
         .. code-block: js
 
             {'USD': {'collateral': '865893.75000',
-                     'collateral_asset': 'BTS',
+                     'collateral_asset': 'TUSC',
                      'debt': 120.00000}
         """
         if not account:

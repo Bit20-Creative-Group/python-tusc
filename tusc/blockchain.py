@@ -10,7 +10,7 @@ class Blockchain(GrapheneBlockchain):
     """
     This class allows to access the blockchain and read data from it.
 
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.tusc.TUSC blockchain_instance: TUSC
              instance
     :param str mode: (default) Irreversible block (``irreversible``) or
              actual head block (``head``)

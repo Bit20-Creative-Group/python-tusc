@@ -13,7 +13,7 @@ class Proposal(GrapheneProposal):
     Read data about a Proposal Balance in the chain.
 
     :param str id: Id of the proposal
-    :param bitshares blockchain_instance: BitShares() instance to use when accesing a RPC
+    :param tusc blockchain_instance: TUSC() instance to use when accessing a RPC
     """
 
     def define_classes(self):
@@ -27,7 +27,7 @@ class Proposals(GrapheneProposals):
     Obtain a list of pending proposals for an account.
 
     :param str account: Account name
-    :param bitshares blockchain_instance: BitShares() instance to use when accesing a RPC
+    :param tusc blockchain_instance: TUSC() instance to use when accessing a RPC
     """
 
     def define_classes(self):

@@ -20,7 +20,7 @@ class Price(GraphenePrice):
 
             (quote, base)
 
-        each being an instance of :class:`bitshares.amount.Amount`. The
+        each being an instance of :class:`tusc.amount.Amount`. The
         amount themselves define the price.
 
         .. note::
@@ -28,29 +28,29 @@ class Price(GraphenePrice):
             The price (floating) is derived as ``base/quote``
 
         :param list args: Allows to deal with different representations of a price
-        :param bitshares.aio.asset.Asset base: Base asset
-        :param bitshares.aio.asset.Asset quote: Quote asset
-        :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+        :param tusc.aio.asset.Asset base: Base asset
+        :param tusc.aio.asset.Asset quote: Quote asset
+        :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
         :returns: All data required to represent a price
         :rtype: dict
 
         Way to obtain a proper instance:
 
             * ``args`` is a str with a price and two assets
-            * ``args`` can be a floating number and ``base`` and ``quote`` being instances of :class:`bitshares.aio.asset.Asset`
+            * ``args`` can be a floating number and ``base`` and ``quote`` being instances of :class:`tusc.aio.asset.Asset`
             * ``args`` can be a floating number and ``base`` and ``quote`` being instances of ``str``
             * ``args`` can be dict with keys ``price``, ``base``, and ``quote`` (*graphene balances*)
             * ``args`` can be dict with keys ``base`` and ``quote``
             * ``args`` can be dict with key ``receives`` (filled orders)
-            * ``args`` being a list of ``[quote, base]`` both being instances of :class:`bitshares.aio.amount.Amount`
+            * ``args`` being a list of ``[quote, base]`` both being instances of :class:`tusc.aio.amount.Amount`
             * ``args`` being a list of ``[quote, base]`` both being instances of ``str`` (``amount symbol``)
-            * ``base`` and ``quote`` being instances of :class:`bitshares.aio.asset.Amount`
+            * ``base`` and ``quote`` being instances of :class:`tusc.aio.asset.Amount`
 
         This allows instanciations like:
 
-        * ``Price("0.315 USD/BTS")``
-        * ``Price(0.315, base="USD", quote="BTS")``
-        * ``Price(0.315, base=Asset("USD"), quote=Asset("BTS"))``
+        * ``Price("0.315 USD/TUSC")``
+        * ``Price(0.315, base="USD", quote="TUSC")``
+        * ``Price(0.315, base=Asset("USD"), quote=Asset("TUSC"))``
         * ``Price({"base": {"amount": 1, "asset_id": "1.3.0"}, "quote": {"amount": 10, "asset_id": "1.3.106"}})``
         * ``Price({"receives": {"amount": 1, "asset_id": "1.3.0"}, "pays": {"amount": 10, "asset_id": "1.3.106"}}, base_asset=Asset("1.3.0"))``
         * ``Price(quote="10 GOLD", base="1 USD")``
@@ -64,8 +64,8 @@ class Price(GraphenePrice):
         .. code-block:: python
 
             >>> from tusc.aio.price import Price
-            >>> await Price("0.3314 USD/BTS") * 2
-            0.662600000 USD/BTS
+            >>> await Price("0.3314 USD/TUSC") * 2
+            0.662600000 USD/TUSC
     """
 
     def define_classes(self):
@@ -95,7 +95,7 @@ class Order(Price):
     ``quote`` Amounts not only be used to represent the price (as a ratio of base and
     quote) but instead has those amounts represent the amounts of an actual order!
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
 
     .. note::
 
@@ -107,7 +107,7 @@ class Order(Price):
     async def __init__(self, *args, **kwargs):
         # This class does not have @BlockchainInstance.inject because of MRO, so we need
         # to init BlockchainInstance manually! Fixes
-        # https://github.com/bitshares/python-bitshares/issues/234
+        # https://github.com/tusc/python-tusc/issues/234
         BlockchainInstance.__init__(self, **kwargs)
 
         if len(args) == 1 and isinstance(args[0], str):
@@ -195,7 +195,7 @@ class FilledOrder(Price):
     quote) but instead has those amounts represent the amounts of an actually filled
     order!
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
 
     .. note:: Instances of this class come with an additional ``time`` key
               that shows when the order has been filled!
@@ -263,7 +263,7 @@ class UpdateCallOrder(Price):
     and ``quote`` Amounts not only be used to represent the **call
     price** (as a ratio of base and quote).
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
     """
 
     async def __init__(self, call, **kwargs):
@@ -306,7 +306,7 @@ class PriceFeed(dict):
     * a settlement price, and
     * a date
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
     """
 
     async def __init__(self, feed, **kwargs):

@@ -16,7 +16,7 @@ class GenesisBalance(GrapheneGenesisBalance):
     Read data about a Genesis Balances from the chain.
 
     :param str identifier: identifier of the balance
-    :param bitshares blockchain_instance: tusc() instance to use when
+    :param tusc blockchain_instance: TUSC() instance to use when
         accesing a RPC
     """
 

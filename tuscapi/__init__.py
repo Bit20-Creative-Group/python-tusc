@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-__all__ = ["tuscnoderpc.py", "exceptions", "websocket"]
+__all__ = ["tuscnoderpc", "exceptions", "websocket"]

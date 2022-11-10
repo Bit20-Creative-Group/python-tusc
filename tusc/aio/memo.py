@@ -11,11 +11,11 @@ class Memo(GrapheneMemo):
     """
     Deals with Memos that are attached to a transfer.
 
-    :param bitshares.aio.account.Account from_account: Account that has sent
+    :param tusc.aio.account.Account from_account: Account that has sent
         the memo
-    :param bitshares.aio.account.Account to_account: Account that has received
+    :param tusc.aio.account.Account to_account: Account that has received
         the memo
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC
         instance
 
     A memo is encrypted with a shared secret derived from a private key of
@@ -27,7 +27,7 @@ class Memo(GrapheneMemo):
     .. code-block:: python
 
         from tusc.aio.memo import Memo
-        m = await Memo("bitshareseu", "wallet.xeroc")
+        m = await Memo("tusceu", "wallet.xeroc")
         m.unlock_wallet("secret")
         enc = (m.encrypt("foobar"))
         print(enc)

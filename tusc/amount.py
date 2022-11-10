@@ -15,15 +15,15 @@ class Amount(GrapheneAmount):
     :param list args: Allows to deal with different representations of an amount
     :param float amount: Let's create an instance with a specific amount
     :param str asset: Let's you create an instance with a specific asset (symbol)
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares instance
+    :param tusc.tusc.TUSC blockchain_instance: TUSC instance
     :returns: All data required to represent an Amount/Asset
     :rtype: dict
     :raises ValueError: if the data provided is not recognized
 
     .. code-block:: python
 
-        from peerplays.amount import Amount
-        from peerplays.asset import Asset
+        from tusc.amount import Amount
+        from tusc.asset import Asset
         a = Amount("1 USD")
         b = Amount(1, "USD")
         c = Amount("20", Asset("USD"))

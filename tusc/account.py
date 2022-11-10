@@ -14,7 +14,7 @@ class Account(GrapheneAccount):
     This class allows to easily access Account data.
 
     :param str account_name: Name of the account
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.tusc.TUSC blockchain_instance: TUSC
            instance
     :param bool full: Obtain all account data including orders, positions, etc.
     :param bool lazy: Use lazy loading

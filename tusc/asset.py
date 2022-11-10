@@ -23,7 +23,7 @@ class Asset(GrapheneAsset):
     :param str Asset: Symbol name or object id of an asset
     :param bool lazy: Lazy loading
     :param bool full: Also obtain bitasset-data and dynamic asset data
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.tusc.TUSC blockchain_instance: TUSC
         instance
     :returns: All data of an asset
     :rtype: dict
@@ -323,9 +323,9 @@ class Asset(GrapheneAsset):
         ... note:: This requires the ``override_authority`` to be
                    set for this asset!
 
-        :param bitshares.account.Account from_account: From this account
-        :param bitshares.account.Account to_account: To this account
-        :param bitshares.amount.Amount amount: Amount to seize
+        :param tusc.account.Account from_account: From this account
+        :param tusc.account.Account to_account: To this account
+        :param tusc.amount.Amount amount: Amount to seize
         """
 
         options = self["options"]
@@ -516,7 +516,7 @@ class Asset(GrapheneAsset):
         Set trading percentage fee.
 
         :param float percentage_fee: Percentage of fee
-        :param bitshares.amount.Amount max_market_fee: Max Fee
+        :param tusc.amount.Amount max_market_fee: Max Fee
         """
         assert percentage_fee <= 100 and percentage_fee > 0
         flags = {"charge_market_fee": percentage_fee > 0}

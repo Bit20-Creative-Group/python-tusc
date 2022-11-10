@@ -19,9 +19,9 @@ class Market(SyncMarket):
     """
     This class allows to easily access Markets on the blockchain for trading, etc.
 
-    :param bitshares.aio.bitshares.BitShares blockchain_instance: BitShares instance
-    :param bitshares.aio.asset.Asset base: Base asset
-    :param bitshares.aio.asset.Asset quote: Quote asset
+    :param tusc.aio.tusc.TUSC blockchain_instance: TUSC instance
+    :param tusc.aio.asset.Asset base: Base asset
+    :param tusc.aio.asset.Asset quote: Quote asset
     :returns: Blockchain Market
     :rtype: dictionary with overloaded methods
 
@@ -38,7 +38,7 @@ class Market(SyncMarket):
     * ``base-quote`` separated with ``-``
 
     .. note:: Throughout this library, the ``quote`` symbol will be
-              presented first (e.g. ``USD:BTS`` with ``USD`` being the
+              presented first (e.g. ``USD:TUSC`` with ``USD`` being the
               quote), while the ``base`` only refers to a secondary asset
               for a trade. This means, if you call
               :func:`tusc.market.Market.sell` or
@@ -75,7 +75,7 @@ class Market(SyncMarket):
         * ``quoteVolume``: Volume of the quote asset
         * ``percentChange``: 24h change percentage (in %)
         * ``settlement_price``: Settlement Price for borrow/settlement
-        * ``core_exchange_rate``: Core exchange rate for payment of fee in non-BTS asset
+        * ``core_exchange_rate``: Core exchange rate for payment of fee in non-TUSC asset
         * ``price24h``: the price 24h ago
 
         Sample Output:
@@ -177,7 +177,7 @@ class Market(SyncMarket):
         .. code-block:: js
 
             {
-                "BTS": 361666.63617,
+                "TUSC": 361666.63617,
                 "USD": 1087.0
             }
         """
@@ -206,16 +206,16 @@ class Market(SyncMarket):
 
         .. code-block:: js
 
-            {'bids': [0.003679 USD/BTS (1.9103 USD|519.29602 BTS),
-            0.003676 USD/BTS (299.9997 USD|81606.16394 BTS),
-            0.003665 USD/BTS (288.4618 USD|78706.21881 BTS),
-            0.003665 USD/BTS (3.5285 USD|962.74409 BTS),
-            0.003665 USD/BTS (72.5474 USD|19794.41299 BTS)],
-            'asks': [0.003738 USD/BTS (36.4715 USD|9756.17339 BTS),
-            0.003738 USD/BTS (18.6915 USD|5000.00000 BTS),
-            0.003742 USD/BTS (182.6881 USD|48820.22081 BTS),
-            0.003772 USD/BTS (4.5200 USD|1198.14798 BTS),
-            0.003799 USD/BTS (148.4975 USD|39086.59741 BTS)]}
+            {'bids': [0.003679 USD/TUSC (1.9103 USD|519.29602 TUSC),
+            0.003676 USD/TUSC (299.9997 USD|81606.16394 TUSC),
+            0.003665 USD/TUSC (288.4618 USD|78706.21881 TUSC),
+            0.003665 USD/TUSC (3.5285 USD|962.74409 TUSC),
+            0.003665 USD/TUSC (72.5474 USD|19794.41299 TUSC)],
+            'asks': [0.003738 USD/TUSC (36.4715 USD|9756.17339 TUSC),
+            0.003738 USD/TUSC (18.6915 USD|5000.00000 TUSC),
+            0.003742 USD/TUSC (182.6881 USD|48820.22081 TUSC),
+            0.003772 USD/TUSC (4.5200 USD|1198.14798 TUSC),
+            0.003799 USD/TUSC (148.4975 USD|39086.59741 TUSC)]}
 
 
         .. note:: Each bid is an instance of
@@ -268,11 +268,11 @@ class Market(SyncMarket):
 
         .. code-block:: js
 
-            [0.003679 USD/BTS (1.9103 USD|519.29602 BTS),
-            0.003676 USD/BTS (299.9997 USD|81606.16394 BTS),
-            0.003665 USD/BTS (288.4618 USD|78706.21881 BTS),
-            0.003665 USD/BTS (3.5285 USD|962.74409 BTS),
-            0.003665 USD/BTS (72.5474 USD|19794.41299 BTS)],
+            [0.003679 USD/TUSC (1.9103 USD|519.29602 TUSC),
+            0.003676 USD/TUSC (299.9997 USD|81606.16394 TUSC),
+            0.003665 USD/TUSC (288.4618 USD|78706.21881 TUSC),
+            0.003665 USD/TUSC (3.5285 USD|962.74409 TUSC),
+            0.003665 USD/TUSC (72.5474 USD|19794.41299 TUSC)],
 
         .. note:: Each bid is an instance of
             class:`tusc.price.Order` and thus carries the keys
@@ -395,7 +395,7 @@ class Market(SyncMarket):
         """
         Returns open Orders.
 
-        :param bitshares.account.Account account: Account name or instance of Account to show orders for in this market
+        :param tusc.account.Account account: Account name or instance of Account to show orders for in this market
         """
         if not account:
             if "default_account" in self.blockchain.config:
@@ -439,16 +439,16 @@ class Market(SyncMarket):
         :param string returnOrderId: If set to "head" or "irreversible" the call will wait for the tx to appear in
                                     the head/irreversible block and add the key "orderid" to the tx output
 
-        Prices/Rates are denoted in 'base', i.e. the USD_BTS market
-        is priced in BTS per USD.
+        Prices/Rates are denoted in 'base', i.e. the USD_TUSC market
+        is priced in TUSC per USD.
 
-        **Example:** in the USD_BTS market, a price of 300 means
-        a USD is worth 300 BTS
+        **Example:** in the USD_TUSC market, a price of 300 means
+        a USD is worth 300 TUSC
 
         .. note::
 
             All prices returned are in the **reversed** orientation as the
-            market. I.e. in the BTC/BTS market, prices are BTS per BTC.
+            market. I.e. in the BTC/TUSC market, prices are TUSC per BTC.
             That way you can multiply prices with `1.05` to get a +5%.
 
         .. warning::
@@ -459,8 +459,8 @@ class Market(SyncMarket):
             buy asset than you placed the order
             for. Example:
 
-                * You place and order to buy 10 USD for 100 BTS/USD
-                * This means that you actually place a sell order for 1000 BTS in order to obtain **at least** 10 USD
+                * You place and order to buy 10 USD for 100 TUSC/USD
+                * This means that you actually place a sell order for 1000 TUSC in order to obtain **at least** 10 USD
                 * If an order on the market exists that sells USD for cheaper, you will end up with more than 10 USD
         """
         if not expiration:
@@ -548,16 +548,16 @@ class Market(SyncMarket):
         :param string returnOrderId: If set to "head" or "irreversible" the call will wait for the tx to appear in
                                     the head/irreversible block and add the key "orderid" to the tx output
 
-        Prices/Rates are denoted in 'base', i.e. the USD_BTS market
-        is priced in BTS per USD.
+        Prices/Rates are denoted in 'base', i.e. the USD_TUSC market
+        is priced in TUSC per USD.
 
-        **Example:** in the USD_BTS market, a price of 300 means
-        a USD is worth 300 BTS
+        **Example:** in the USD_TUSC market, a price of 300 means
+        a USD is worth 300 TUSC
 
         .. note::
 
             All prices returned are in the **reversed** orientation as the
-            market. I.e. in the BTC/BTS market, prices are BTS per BTC.
+            market. I.e. in the BTC/TUSC market, prices are TUSC per BTC.
             That way you can multiply prices with `1.05` to get a +5%.
         """
         if not expiration:

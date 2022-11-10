@@ -11,8 +11,8 @@ class Vesting(GrapheneVesting):
     Read data about a Vesting Balance in the chain.
 
     :param str id: Id of the vesting balance
-    :param bitshares blockchain_instance: BitShares() instance to use when
-        accesing a RPC
+    :param tusc blockchain_instance: TUSC() instance to use when
+        accessing a RPC
     """
 
     def define_classes(self):

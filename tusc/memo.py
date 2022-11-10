@@ -17,11 +17,11 @@ class Memo(GrapheneMemo):
     """
     Deals with Memos that are attached to a transfer.
 
-    :param bitshares.account.Account from_account: Account that has sent
+    :param tusc.account.Account from_account: Account that has sent
         the memo
-    :param bitshares.account.Account to_account: Account that has received
+    :param tusc.account.Account to_account: Account that has received
         the memo
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.tusc.TUSC blockchain_instance: TUSC
         instance
 
     A memo is encrypted with a shared secret derived from a private key of

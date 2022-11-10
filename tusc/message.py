@@ -14,10 +14,10 @@ from .exceptions import (
 @BlockchainInstance.inject
 class Message(GrapheneMessage):
     MESSAGE_SPLIT = (
-        "-----BEGIN BITSHARES SIGNED MESSAGE-----",
+        "-----BEGIN TUSC SIGNED MESSAGE-----",
         "-----BEGIN META-----",
         "-----BEGIN SIGNATURE-----",
-        "-----END BITSHARES SIGNED MESSAGE-----",
+        "-----END TUSC SIGNED MESSAGE-----",
     )
 
     def define_classes(self):

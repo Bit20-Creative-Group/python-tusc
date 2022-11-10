@@ -12,7 +12,7 @@ class Block(GrapheneBlock):
     Read a single block from the chain.
 
     :param int block: block number
-    :param bitshares.bitshares.BitShares blockchain_instance: BitShares
+    :param tusc.tusc.TUSC blockchain_instance: TUSC
         instance
     :param bool lazy: Use lazy loading
 

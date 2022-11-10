@@ -17,7 +17,7 @@ from ..asset import Asset as SyncAsset
 @BlockchainInstance.inject
 class Asset(GrapheneAsset, SyncAsset):
     """
-    BitShares asset.
+    TUSC asset.
 
     Async version of :class:`tusc.tusc.Asset`
     """
@@ -295,9 +295,9 @@ class Asset(GrapheneAsset, SyncAsset):
         ... note:: This requires the ``override_authority`` to be
                    set for this asset!
 
-        :param bitshares.account.Account from_account: From this account
-        :param bitshares.account.Account to_account: To this account
-        :param bitshares.amount.Amount amount: Amount to seize
+        :param tusc.account.Account from_account: From this account
+        :param tusc.account.Account to_account: To this account
+        :param tusc.amount.Amount amount: Amount to seize
         """
         op = super().seize(*args, return_op=True)
         return await self.blockchain.finalizeOp(op, self["issuer"], "active")
@@ -460,7 +460,7 @@ class Asset(GrapheneAsset, SyncAsset):
         Set trading percentage fee.
 
         :param float percentage_fee: Percentage of fee
-        :param bitshares.amount.Amount max_market_fee: Max Fee
+        :param tusc.amount.Amount max_market_fee: Max Fee
         """
         op = super().set_market_fee(percentage_fee, max_market_fee, return_op=True)
         return await self.blockchain.finalizeOp(op, self["issuer"], "active")

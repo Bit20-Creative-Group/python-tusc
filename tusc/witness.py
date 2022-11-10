@@ -14,8 +14,8 @@ class Witness(GrapheneWitness):
     Read data about a witness in the chain.
 
     :param str account_name: Name of the witness
-    :param bitshares blockchain_instance: BitShares() instance to use when
-           accesing a RPC
+    :param tusc blockchain_instance: TUSC() instance to use when
+           accessing a RPC
     """
 
     def define_classes(self):
@@ -30,8 +30,8 @@ class Witnesses(GrapheneWitnesses):
 
     :param bool only_active: (False) Only return witnesses that are
         actively producing blocks
-    :param bitshares blockchain_instance: BitShares() instance to use when
-        accesing a RPC
+    :param tusc blockchain_instance: TUSC() instance to use when
+        accessing a RPC
     """
 
     def define_classes(self):

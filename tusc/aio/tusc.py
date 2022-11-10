@@ -33,7 +33,7 @@ log = logging.getLogger(__name__)
 
 class TUSC(AbstractGrapheneChain, SyncTUSC):
     """
-    BitShares async client.
+    TUSC async client.
 
     This is an asyncio version of :class:`tusc.TUSC`
 
@@ -838,7 +838,7 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
         """
         Set a specific proxy for account.
 
-        :param bitshares.account.Account proxy_account: Account to be
+        :param tusc.account.Account proxy_account: Account to be
                 proxied
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
@@ -904,7 +904,7 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
         Withdraw vesting balance.
 
         :param str vesting_id: Id of the vesting object
-        :param bitshares.amount.Amount Amount: to withdraw ("all" if not
+        :param tusc.amount.Amount Amount: to withdraw ("all" if not
             provided")
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
@@ -938,8 +938,8 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
         Publish a price feed for a market-pegged asset.
 
         :param str symbol: Symbol of the asset to publish feed for
-        :param bitshares.price.Price settlement_price: Price for settlement
-        :param bitshares.price.Price cer: Core exchange Rate (default
+        :param tusc.price.Price settlement_price: Price for settlement
+        :param tusc.price.Price cer: Core exchange Rate (default
             ``settlement_price + 5%``)
         :param float mssr: Percentage for max short squeeze ratio (default:
             110%)
@@ -1018,7 +1018,7 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
         Update the Core Exchange Rate (CER) of an asset.
 
         :param str symbol: Symbol of the asset to publish feed for
-        :param bitshares.price.Price cer: Core exchange Rate
+        :param tusc.price.Price cer: Core exchange Rate
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
         """
@@ -1083,7 +1083,7 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
 
         This removes the shares from the supply
 
-        :param bitshares.amount.Amount amount: The amount to be burned.
+        :param tusc.amount.Amount amount: The amount to be burned.
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
         """
@@ -1290,7 +1290,7 @@ class TUSC(AbstractGrapheneChain, SyncTUSC):
         **Required**
 
         :param str name: Name of the worker
-        :param bitshares.amount.Amount daily_pay: The amount to be paid
+        :param tusc.amount.Amount daily_pay: The amount to be paid
             daily
         :param datetime end: Date/time of end of the worker
 

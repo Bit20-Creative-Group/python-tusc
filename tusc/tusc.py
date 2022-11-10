@@ -196,7 +196,7 @@ class TUSC(AbstractGrapheneChain):
         **kwargs
     ):
         """
-        Create new account on BitShares.
+        Create new account on TUSC.
 
         The brainkey/password can be used to recover all generated keys
         (see `tuscbase.account` for more details.
@@ -919,7 +919,7 @@ class TUSC(AbstractGrapheneChain):
         """
         Set a specific proxy for account.
 
-        :param bitshares.account.Account proxy_account: Account to be
+        :param tusc.account.Account proxy_account: Account to be
                 proxied
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
@@ -983,7 +983,7 @@ class TUSC(AbstractGrapheneChain):
         Withdraw vesting balance.
 
         :param str vesting_id: Id of the vesting object
-        :param bitshares.amount.Amount Amount: to withdraw ("all" if not
+        :param tusc.amount.Amount Amount: to withdraw ("all" if not
             provided")
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
@@ -1017,8 +1017,8 @@ class TUSC(AbstractGrapheneChain):
         Publish a price feed for a market-pegged asset.
 
         :param str symbol: Symbol of the asset to publish feed for
-        :param bitshares.price.Price settlement_price: Price for settlement
-        :param bitshares.price.Price cer: Core exchange Rate (default
+        :param tusc.price.Price settlement_price: Price for settlement
+        :param tusc.price.Price cer: Core exchange Rate (default
             ``settlement_price + 5%``)
         :param float mssr: Percentage for max short squeeze ratio (default:
             110%)
@@ -1091,7 +1091,7 @@ class TUSC(AbstractGrapheneChain):
         Update the Core Exchange Rate (CER) of an asset.
 
         :param str symbol: Symbol of the asset to publish feed for
-        :param bitshares.price.Price cer: Core exchange Rate
+        :param tusc.price.Price cer: Core exchange Rate
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
         """
@@ -1156,7 +1156,7 @@ class TUSC(AbstractGrapheneChain):
 
         This removes the shares from the supply
 
-        :param bitshares.amount.Amount amount: The amount to be burned.
+        :param tusc.amount.Amount amount: The amount to be burned.
         :param str account: (optional) the account to allow access
             to (defaults to ``default_account``)
         """
@@ -1363,7 +1363,7 @@ class TUSC(AbstractGrapheneChain):
         **Required**
 
         :param str name: Name of the worke
-        :param bitshares.amount.Amount daily_pay: The amount to be paid
+        :param tusc.amount.Amount daily_pay: The amount to be paid
             daily
         :param datetime end: Date/time of end of the worker
 
@@ -1792,7 +1792,7 @@ class TUSC(AbstractGrapheneChain):
         :param float withdrawal_fee_percent: The pool's withdrawal fee percent.
 
         For percentages, meaningful range is [0.00, 100.00], where 1% is
-        represented as 1.0.  Smallest non-zero value recognized by BitShares
+        represented as 1.0.  Smallest non-zero value recognized by TUSC
         chain is 0.01 for 0.01%.
         """
         if not account:

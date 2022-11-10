@@ -26,9 +26,9 @@ class ProposalBuilder(GrapheneProposalBuilder):
         supposed to expire
     :param int proposal_review: Number of seconds for review of the
         proposal
-    :param .transactionbuilder.TransactionBuilder: Specify
+    :param tusc.transactionbuilder.TransactionBuilder: Specify
         your own instance of transaction builder (optional)
-    :param instance blockchain_instance: Blockchain instance
+    :param tusc instance blockchain_instance: TUSC() Blockchain instance
     """
 
     def define_classes(self):
